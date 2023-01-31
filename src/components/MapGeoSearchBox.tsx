@@ -50,8 +50,8 @@ function MapGeoSearchBox() {
   return (
     <div
       className={clsx(
-        "leaflet-control leaflet-control-button leaflet-left w-80 ml-3 mt-2 bg-white",
-        "rounded border border-1 border-slate-500 border-opacity-50 shadow-lg",
+        "leaflet-control leaflet-control-button leaflet-left ml-3 mt-2 w-80 bg-white",
+        "border-1 rounded border border-slate-500 border-opacity-50 shadow-lg",
         showSearchBox ? "visible" : "hidden"
       )}
     >
@@ -73,7 +73,7 @@ function MapGeoSearchBox() {
                 key={item.place_id}
                 value={item}
                 className={clsx(
-                  "py-2 px-1 mx-2 cursor-pointer",
+                  "mx-2 cursor-pointer py-2 px-1",
                   "hover:bg-gray-200"
                 )}
               >

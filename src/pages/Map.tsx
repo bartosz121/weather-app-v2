@@ -9,7 +9,7 @@ export default function Map(): JSX.Element {
   return (
     <MapContainer
       id="map"
-      className="w-screen h-screen"
+      className="h-screen w-screen"
       center={[20, 0]}
       zoom={3}
       minZoom={3}

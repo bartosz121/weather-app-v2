@@ -31,7 +31,7 @@ function Spinner({ size = "md", className: classNameProp, mxAuto }: Props) {
         className={clsx(
           classNameProp ? classNameProp : "animate-spin",
           sizeTailwind,
-          `text-gray-200 dark:text-gray-400 fill-teal-600`,
+          `fill-teal-600 text-gray-200 dark:text-gray-400`,
           mxAuto ? "mx-auto" : null
         )}
         viewBox="0 0 100 101"

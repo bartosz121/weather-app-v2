@@ -41,12 +41,12 @@ export default function MapGeoSearch(props: Props) {
       <button
         onClick={handleToggle}
         className={clsx(
-          "leaflet-control leaflet-control-button leaflet-left leaflet-right py-2 px-2 cursor-pointer",
+          "leaflet-control leaflet-control-button leaflet-left leaflet-right cursor-pointer py-2 px-2",
           props.margins ?? "mt-20 ml-3",
           showInput
             ? "bg-gray-200 hover:bg-white"
             : "bg-white hover:bg-gray-200",
-          "rounded border border-1 border-slate-500 border-opacity-50 shadow-lg",
+          "border-1 rounded border border-slate-500 border-opacity-50 shadow-lg",
           "transition-colors",
           props.className
         )}
