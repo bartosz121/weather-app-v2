@@ -8,8 +8,8 @@ type Props = React.HTMLAttributes<HTMLDivElement> & {
 function ForecastSection({ title, children, ...props }: Props) {
   return (
     <section {...props}>
-      {title ? <h2 className="text-2xl">{title}</h2> : null}
-      <div className="border-t border-black">{children}</div>
+      {title ? <h2 className="text-2xl text-white">{title}</h2> : null}
+      <div className="border-t border-white">{children}</div>
     </section>
   );
 }

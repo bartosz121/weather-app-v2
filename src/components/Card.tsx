@@ -18,7 +18,7 @@ function Card({
       onClick={onClickProp && onClickProp}
       className={clsx(
         flexSize ? flexSize : "shrink-0 grow basis-44",
-        "border border-black bg-slate-700 bg-opacity-50 text-center hover:bg-opacity-100",
+        "border border-white border-opacity-0 bg-white bg-opacity-30 text-center transition-all hover:border-opacity-100 hover:bg-opacity-50",
         extraClassName ? extraClassName : null
       )}
     >
