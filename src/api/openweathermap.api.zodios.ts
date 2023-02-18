@@ -32,7 +32,7 @@ export const openWeatherMapCurrent = openWeatherMapForecastBase.extend({
   weather: z.array(openWeatherMapWeather),
 });
 
-const openWeatherMapAlert = z.object({
+export const openWeatherMapAlert = z.object({
   sender_name: z.string(),
   event: z.string(),
   start: z.number(),
@@ -46,7 +46,7 @@ const openWeatherMapMinutely = z.object({
   precipitation: z.number(),
 });
 
-const openWeatherMapHourly = openWeatherMapForecastBase.extend({
+export const openWeatherMapHourly = openWeatherMapForecastBase.extend({
   weather: z.array(openWeatherMapWeather),
   visibility: z.number(),
   pop: z.number(),
