@@ -21,14 +21,14 @@ function SunDayInfoSection({
     <ForecastSection {...props}>
       <div className="mt-1 md:px-2">
         <div>
-          <h4 className="font-medium">Sunrise</h4>
+          <h4 className="font-semibold">Sunrise</h4>
           <span className="flex flex-row items-center gap-2">
             <WiSunrise className="h-16 w-16" />
             <DisplayDt dt={sunRise} dtFormat={dtFormat} />
           </span>
         </div>
         <div>
-          <h4 className="font-medium">Sunset</h4>
+          <h4 className="font-semibold">Sunset</h4>
           <span className="flex flex-row items-center gap-2">
             <WiSunset className="h-16 w-16" />
             <DisplayDt dt={sunSet} dtFormat={dtFormat} />

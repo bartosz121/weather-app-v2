@@ -89,21 +89,21 @@ function MoonDayInfoSection({
     <ForecastSection {...props}>
       <div className="mt-1 flex flex-col justify-center md:px-2">
         <div>
-          <h4 className="font-medium">Moonrise</h4>
+          <h4 className="font-semibold">Moonrise</h4>
           <span className="flex flex-row items-center gap-2">
             <WiMoonrise className="h-16 w-16" />
             <DisplayDt dt={moonRise} dtFormat={dtFormat} />
           </span>
         </div>
         <div>
-          <h4 className="font-medium">Moonset</h4>
+          <h4 className="font-semibold">Moonset</h4>
           <span className="flex flex-row items-center gap-2">
             <WiMoonset className="h-16 w-16" />
             <DisplayDt dt={moonSet} dtFormat={dtFormat} />
           </span>
         </div>
         <div>
-          <h4 className="font-medium">Moon Phase</h4>
+          <h4 className="font-semibold">Moon Phase</h4>
           <span className="flex flex-row items-center gap-2">
             <moonPhaseData.icon className="h-16 w-16" />
             <span>{moonPhaseData.phaseName}</span>

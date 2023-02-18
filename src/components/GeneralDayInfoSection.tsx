@@ -28,7 +28,7 @@ function GeneralDayInfoSection({ dailyData, ...props }: Props) {
   return (
     <ForecastSection {...props}>
       <div className="mt-1 flex flex-col md:px-2">
-        <h4 className="text-lg font-medium capitalize">
+        <h4 className="mb-1 text-lg font-semibold capitalize">
           {dailyData.weather[0].description}
         </h4>
         {dailyData.rain ? (
