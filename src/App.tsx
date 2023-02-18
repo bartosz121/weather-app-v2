@@ -1,18 +1,18 @@
+import { RouterProvider } from "react-router-dom";
+
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
-import Map from "./pages/Map";
+import { router } from "./router";
 
 const queryClient = new QueryClient();
 
 function App() {
   return (
-    <div className="App">
-      <QueryClientProvider client={queryClient}>
-        <Map />
-        <ReactQueryDevtools initialIsOpen={false} />
-      </QueryClientProvider>
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   );
 }
 
