@@ -19,7 +19,7 @@ function ForecastAlerts({ alertsData, locationTimezone }: Props) {
       {alertsData.map((item) => (
         <section
           key={crypto.randomUUID()}
-          className="my-2 bg-white bg-opacity-20 p-2 text-white hover:bg-opacity-40"
+          className="my-2 bg-white bg-opacity-20 p-2 text-white transition-all hover:bg-opacity-40"
         >
           <h3 className="text-xl font-medium">{item.event}</h3>
           <p className="text-sm opacity-60">{item.sender_name}</p>
