@@ -8,6 +8,7 @@ import { LatLng, Map } from "leaflet";
 import { selectedLocationAtom } from "../state/app.state";
 
 const flyToZoomLevel = 13;
+const maxZoomLevelFlyTo = 10;
 
 export default function MapLocation() {
   const [selectedLocation, setSelectedLocation] = useAtom(selectedLocationAtom);
@@ -19,7 +20,11 @@ export default function MapLocation() {
   }, [selectedLocation]);
 
   function flyTo(position: LatLng, map: Map) {
-    map.flyTo(position, flyToZoomLevel);
+    const currentZoom = map.getZoom();
+    map.flyTo(
+      position,
+      currentZoom > maxZoomLevelFlyTo ? currentZoom : flyToZoomLevel
+    );
   }
 
   const map = useMapEvents({
