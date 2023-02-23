@@ -53,7 +53,7 @@ function ForecastHead({
         Updated as of{" "}
         <DisplayDt dt={fetchTime * 1000} dtFormat={dtFormatHHMM} />
       </span>
-      <div className="mt-2 flex flex-row flex-wrap justify-center gap-3 text-sm md:w-3/4 md:justify-around md:gap-0">
+      <div className="mt-2 flex flex-row flex-wrap justify-center gap-3 text-sm md:w-3/4 md:justify-around">
         <div className="">
           <span className="mr-1">Local time</span>
           <DisplayDt dt={new Date().getTime()} dtFormat={dtFormatWTimezone} />
