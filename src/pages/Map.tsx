@@ -1,11 +1,17 @@
 import { MapContainer, TileLayer } from "react-leaflet";
 
+import { useAtomValue } from "jotai";
+
+import CheckForecastButton from "../components/CheckForecastButton";
 import MapGeoSearch from "../components/MapGeoSearch";
 import MapLocation from "../components/MapLocation";
+import { selectedLocationAtom } from "../state/app.state";
 
 import "leaflet/dist/leaflet.css";
 
-export default function Map(): JSX.Element {
+export default function Map() {
+  const selectedLocation = useAtomValue(selectedLocationAtom);
+
   return (
     <MapContainer
       id="map"
@@ -21,6 +27,7 @@ export default function Map(): JSX.Element {
       />
       <MapLocation />
       <MapGeoSearch />
+      {selectedLocation ? <CheckForecastButton /> : null}
     </MapContainer>
   );
 }
