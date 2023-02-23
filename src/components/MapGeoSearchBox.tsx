@@ -3,7 +3,7 @@ import { useDebounce } from "react-use";
 
 import { Combobox } from "@headlessui/react";
 import clsx from "clsx";
-import { atom, useAtom } from "jotai";
+import { atom, useAtom, useSetAtom } from "jotai";
 import { LatLng } from "leaflet";
 
 import { Geosearch, geosearchApi } from "../api/geosearch.api.zodios";
@@ -17,7 +17,7 @@ const searchInputDebouncedAtom = atom("");
 function MapGeoSearchBox() {
   const [showSearchBox, setShowSearchBox] = useAtom(showSearchBoxAtom);
   const [searchInput, setSearchInput] = useAtom(searchInputAtom);
-  const [, setSelectedLocation] = useAtom(selectedLocationAtom);
+  const setSelectedLocation = useSetAtom(selectedLocationAtom);
   const [searchInputDebounced, setSearchInputDebounced] = useAtom(
     searchInputDebouncedAtom
   );
@@ -42,7 +42,7 @@ function MapGeoSearchBox() {
 
   const geosearchQuery = geosearchApi.useGetGeosearch(
     {
-      queries: { q: searchInputDebounced, limit: 5, format: "json" },
+      queries: { q: searchInputDebounced, limit: 10, format: "jsonv2" },
     },
     { enabled: !!searchInputDebounced, refetchOnWindowFocus: false }
   );
@@ -50,7 +50,7 @@ function MapGeoSearchBox() {
   return (
     <div
       className={clsx(
-        "leaflet-control leaflet-control-button leaflet-left ml-3 mt-2 w-80 bg-white",
+        "leaflet-ctrl leaflet-control leaflet-control-button leaflet-left ml-3 mt-2 w-80 bg-white",
         "border-1 rounded border border-slate-500 border-opacity-50 shadow-lg",
         showSearchBox ? "visible" : "hidden"
       )}

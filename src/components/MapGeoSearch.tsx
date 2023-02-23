@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 import clsx from "clsx";
 import { atom, useAtom } from "jotai";
 
@@ -41,7 +43,7 @@ export default function MapGeoSearch(props: Props) {
       <button
         onClick={handleToggle}
         className={clsx(
-          "leaflet-control leaflet-control-button leaflet-left leaflet-right cursor-pointer py-2 px-2",
+          "leaflet-btn leaflet-control leaflet-control-button leaflet-left cursor-pointer py-2 px-2",
           props.margins ?? "mt-20 ml-3",
           showInput
             ? "bg-gray-200 hover:bg-white"
