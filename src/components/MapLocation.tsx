@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 import { Marker, useMapEvents } from "react-leaflet";
 
 import { useAtom } from "jotai";
-import { LatLng, LeafletMouseEvent, LocationEvent, Map } from "leaflet";
+import { LatLng, Map } from "leaflet";
 
 import { selectedLocationAtom } from "../state/app.state";
 
