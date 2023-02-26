@@ -1,8 +1,56 @@
+import { SkyconProps } from "react-skycons-extended";
+
 import { browserLocaleStore } from "./state/app.state";
 
 const { getState } = browserLocaleStore;
 
 const { browserLocale } = getState();
+
+/** Returns react-skycons-extended component for open weather map icon
+ * // https://openweathermap.org/weather-conditions
+ */
+export function getRseIconForOmwIcon(icon: string) {
+  switch (icon) {
+    case "01d":
+      return "CLEAR_DAY";
+    case "01n":
+      return "CLEAR_NIGHT";
+    case "02d":
+      return "PARTLY_CLOUDY_DAY";
+    case "02n":
+      return "PARTLY_CLOUDY_NIGHT";
+    case "03d":
+      return "PARTLY_CLOUDY_DAY";
+    case "03n":
+      return "PARTLY_CLOUDY_NIGHT";
+    case "04d":
+      return "CLOUDY";
+    case "04n":
+      return "CLOUDY";
+    case "09d":
+      return "RAIN";
+    case "09n":
+      return "RAIN";
+    case "10d":
+      return "RAIN";
+    case "10n":
+      return "RAIN";
+    case "11d":
+      return "THUNDER_RAIN";
+    case "11n":
+      return "THUNDER_RAIN";
+    case "13d":
+      return "SNOW";
+    case "13n":
+      return "SNOW";
+    case "50d":
+      return "FOG";
+    case "50n":
+      return "FOG";
+    default:
+      return "CLEAR_DAY";
+  }
+}
 
 export function getBackgroundImage(icon: string) {
   switch (icon) {
