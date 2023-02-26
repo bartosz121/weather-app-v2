@@ -1,11 +1,17 @@
 import { useMemo } from "react";
 
+import { ReactSkycon } from "react-skycons-extended";
+
 import { useAtomValue } from "jotai";
 import { z } from "zod";
 
 import { openWeatherMapCurrent as openWeatherMapCurrentSchema } from "../api/openweathermap.api.zodios";
 import { tempUnitAtom } from "../state/app.state";
-import { dtFormatHHMM, dtFormatMediumWTimezone } from "../utils";
+import {
+  dtFormatHHMM,
+  dtFormatMediumWTimezone,
+  getRseIconForOmwIcon,
+} from "../utils";
 import DisplayDt from "./DisplayDt";
 import TempUnit from "./TempUnit";
 
@@ -26,6 +32,7 @@ function ForecastHead({
 }: Props) {
   const dtFormatWTimezone = dtFormatMediumWTimezone(locationTimezone);
   const tempUnitA = useAtomValue(tempUnitAtom);
+  const skycon = getRseIconForOmwIcon(forecastCurrent.weather[0].icon);
 
   const windSpeedDisplay = useMemo(() => {
     switch (tempUnitA) {
@@ -39,9 +46,11 @@ function ForecastHead({
   return (
     <section className="flex flex-col items-center gap-1 pt-2 text-white">
       <h2 className="mb-2 text-center text-2xl">{locationName}</h2>
-      <div className="flex flex-row gap-3 text-7xl">
-        <span>ICON</span>
-        <div className="flex flex-row gap-2">
+      <div className="flex flex-row items-center gap-3">
+        <span>
+          <ReactSkycon icon={skycon} size={100} color="white" />
+        </span>
+        <div className="flex flex-row gap-2 text-7xl">
           {forecastCurrent.temp}
           <TempUnit className="select-none" addOnClickChange />
         </div>
