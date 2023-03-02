@@ -2,7 +2,7 @@ import { Suspense, lazy } from "react";
 
 import { createBrowserRouter } from "react-router-dom";
 
-import Spinner from "./components/Spinner";
+import SpinnerPage from "./pages/SpinnerPage";
 
 const Map = lazy(() => import("./pages/Map"));
 const AtomProvider = lazy(() => import("./components/AtomProvider"));
@@ -11,8 +11,7 @@ export const router = createBrowserRouter([
   {
     path: "*",
     element: (
-      // TODO
-      <Suspense fallback={<Spinner />}>
+      <Suspense fallback={<SpinnerPage />}>
         <Map />
       </Suspense>
     ),
@@ -20,7 +19,7 @@ export const router = createBrowserRouter([
   {
     path: "/:latlon",
     element: (
-      <Suspense fallback={<Spinner />}>
+      <Suspense fallback={<SpinnerPage />}>
         <AtomProvider />
       </Suspense>
     ),
