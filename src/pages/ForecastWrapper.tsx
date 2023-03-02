@@ -14,7 +14,7 @@ function ForecastWrapper() {
       style={
         forecastBackground
           ? { backgroundImage: `url(${forecastBackground})` }
-          : {}
+          : { backgroundColor: "black" }
       }
       className="fixed h-full w-full overflow-y-auto bg-cover bg-center bg-no-repeat"
     >
