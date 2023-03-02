@@ -9,7 +9,6 @@ import { selectedLocationAtom } from "../state/app.state";
 function AtomProvider() {
   const { latlon } = useParams();
   const selectedLocation = useAtomValue(selectedLocationAtom);
-  console.log(latlon);
 
   return (
     <Provider
@@ -28,7 +27,6 @@ function AtomProvider() {
 export default AtomProvider;
 
 function parseUrlLatLng(latLng: string): LatLng | null {
-  console.log(latLng);
   const split = latLng.split(",");
   if (split.length !== 2) {
     return null;
