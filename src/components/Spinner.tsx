@@ -1,13 +1,18 @@
 import clsx from "clsx";
 import { string } from "zod";
 
+type SpinnerSize = "sm" | "md" | "lg" | "xl" | "xxl";
+
+type SpinnerColor = "normal" | "slate";
+
 type Props = {
-  size?: "sm" | "md" | "lg" | "xl";
+  size?: SpinnerSize;
+  color?: SpinnerColor;
   mxAuto?: boolean;
   className?: string;
 };
 
-function getTailwindSize(size: "sm" | "md" | "lg" | "xl") {
+function getTailwindSize(size: SpinnerSize) {
   switch (size) {
     case "sm":
       return "w-4 h-4";
@@ -17,13 +22,33 @@ function getTailwindSize(size: "sm" | "md" | "lg" | "xl") {
       return "w-16 h-16";
     case "xl":
       return "w-32 h-32";
+    case "xxl":
+      return "w-64 h-64";
     default:
       throw new Error(`Unknown size ${size}`);
   }
 }
 
-function Spinner({ size = "md", className: classNameProp, mxAuto }: Props) {
+function getTailwindColor(color: SpinnerColor) {
+  switch (color) {
+    case "normal":
+      return "fill-teal-600 text-gray-200 dark:text-gray-400";
+    case "slate":
+      return "fill-slate-500 text-slate-800 dark:text-gray-400";
+    default:
+      throw new Error(`Unknown color ${color}`);
+  }
+}
+
+function Spinner({
+  size = "md",
+  color = "normal",
+  className: classNameProp,
+  mxAuto,
+}: Props) {
   const sizeTailwind = getTailwindSize(size);
+  const colorTailwind = getTailwindColor(color);
+
   return (
     <div role="status">
       <svg
@@ -31,7 +56,7 @@ function Spinner({ size = "md", className: classNameProp, mxAuto }: Props) {
         className={clsx(
           classNameProp ? classNameProp : "animate-spin",
           sizeTailwind,
-          `fill-teal-600 text-gray-200 dark:text-gray-400`,
+          colorTailwind,
           mxAuto ? "mx-auto" : null
         )}
         viewBox="0 0 100 101"
