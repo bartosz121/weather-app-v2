@@ -21,7 +21,7 @@ function ForecastAlerts({ alertsData, locationTimezone }: Props) {
           key={crypto.randomUUID()}
           className="my-2 bg-white bg-opacity-20 p-2 text-white transition-all hover:bg-opacity-40"
         >
-          <h3 className="text-xl font-medium">{item.event}</h3>
+          <h3 className="text-xl font-medium capitalize">{item.event}</h3>
           <p className="text-sm opacity-60">{item.sender_name}</p>
           <p className="text-sm opacity-60">
             <DisplayDt dt={item.start * 1000} dtFormat={dtFormat} />
