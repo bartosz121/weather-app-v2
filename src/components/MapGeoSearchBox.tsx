@@ -1,4 +1,5 @@
-import { useMap } from "react-leaflet";
+import { ForwardedRef, forwardRef } from "react";
+
 import { useDebounce } from "react-use";
 
 import { Combobox } from "@headlessui/react";
@@ -14,7 +15,9 @@ import Spinner from "./Spinner";
 const searchInputAtom = atom("");
 const searchInputDebouncedAtom = atom("");
 
-function MapGeoSearchBox() {
+type Props = {};
+
+function MapGeoSearchBox(props: Props, ref: ForwardedRef<HTMLInputElement>) {
   const [showSearchBox, setShowSearchBox] = useAtom(showSearchBoxAtom);
   const [searchInput, setSearchInput] = useAtom(searchInputAtom);
   const setSelectedLocation = useSetAtom(selectedLocationAtom);
@@ -57,27 +60,32 @@ function MapGeoSearchBox() {
     >
       <Combobox onChange={handleChangeCombobox}>
         <Combobox.Input
+          ref={ref}
           onChange={handleChangeInput}
           className="w-full rounded py-2 px-2"
+          autoComplete="off"
         />
         <Combobox.Options className="pb-2">
           {geosearchQuery.isLoading ? (
             <div className="py-2">
-              <Spinner mxAuto={true} />
+              <Spinner color="normal" mxAuto={true} />
             </div>
           ) : geosearchQuery.isError ? (
             <h1>Error</h1>
           ) : (
             geosearchQuery.data?.map((item) => (
-              <Combobox.Option
-                key={item.place_id}
-                value={item}
-                className={clsx(
-                  "mx-2 cursor-pointer py-2 px-1",
-                  "hover:bg-gray-200"
+              <Combobox.Option key={item.place_id} value={item}>
+                {({ active }) => (
+                  <li
+                    className={clsx(
+                      "mx-2 cursor-pointer py-2 px-1",
+                      "hover:bg-gray-200",
+                      active ? "bg-gray-200" : null
+                    )}
+                  >
+                    {item.display_name}
+                  </li>
                 )}
-              >
-                {item.display_name}
               </Combobox.Option>
             ))
           )}
@@ -87,4 +95,4 @@ function MapGeoSearchBox() {
   );
 }
 
-export default MapGeoSearchBox;
+export default forwardRef<HTMLInputElement, Props>(MapGeoSearchBox);

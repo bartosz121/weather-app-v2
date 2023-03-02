@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useEffect, useRef } from "react";
 
 import clsx from "clsx";
 import { atom, useAtom } from "jotai";
@@ -32,11 +32,20 @@ type Props = {
 export const showSearchBoxAtom = atom(false);
 
 export default function MapGeoSearch(props: Props) {
+  const comboboxInputRef = useRef<HTMLInputElement>(null);
   const [showInput, setShowInput] = useAtom(showSearchBoxAtom);
 
   function handleToggle() {
     setShowInput((state) => !state);
   }
+
+  useEffect(() => {
+    if (showInput) {
+      comboboxInputRef.current?.focus();
+    } else {
+      return;
+    }
+  }, [showInput]);
 
   return (
     <div>
@@ -55,7 +64,7 @@ export default function MapGeoSearch(props: Props) {
       >
         {SearchSvg}
       </button>
-      <MapGeoSearchBox />
+      <MapGeoSearchBox ref={comboboxInputRef} />
     </div>
   );
 }
