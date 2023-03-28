@@ -2,10 +2,9 @@ import { Suspense, lazy } from "react";
 
 import { createBrowserRouter } from "react-router-dom";
 
+import AtomProvider from "./components/AtomProvider";
+import Map from "./pages/Map";
 import SpinnerPage from "./pages/SpinnerPage";
-
-const Map = lazy(() => import("./pages/Map"));
-const AtomProvider = lazy(() => import("./components/AtomProvider"));
 
 export const router = createBrowserRouter([
   {
