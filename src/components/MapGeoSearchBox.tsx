@@ -62,7 +62,7 @@ function MapGeoSearchBox(props: Props, ref: ForwardedRef<HTMLInputElement>) {
         <Combobox.Input
           ref={ref}
           onChange={handleChangeInput}
-          className="w-full rounded py-2 px-2"
+          className="w-full rounded py-2 px-2 outline-none"
           autoComplete="off"
         />
         <Combobox.Options className="pb-2">
