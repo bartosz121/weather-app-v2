@@ -12,3 +12,7 @@ body {
 .leaflet-ctrl {
   font-family: 'Raleway', sans-serif;
 }
+
+.leaflet-default-icon-path {
+  background-image: url(https://unpkg.com/leaflet@1.9.3/dist/images/marker-icon.png);
+}
