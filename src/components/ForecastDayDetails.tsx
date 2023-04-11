@@ -43,14 +43,14 @@ function ForecastDayDetails({ dailyData, locationTimezone }: Props) {
         />
         <SunDayInfoSection
           className="shrink-0 grow basis-12"
-          sunRise={dailyData[selectedDay].sunrise}
-          sunSet={dailyData[selectedDay].sunset}
+          sunRise={dailyData[selectedDay].sunrise * 1000}
+          sunSet={dailyData[selectedDay].sunset * 1000}
           locationTimezone={locationTimezone}
         />
         <MoonDayInfoSection
           className="shrink-0 grow basis-12"
-          moonRise={dailyData[selectedDay].moonrise}
-          moonSet={dailyData[selectedDay].moonset}
+          moonRise={dailyData[selectedDay].moonrise * 1000}
+          moonSet={dailyData[selectedDay].moonset * 1000}
           moonPhase={dailyData[selectedDay].moon_phase}
           locationTimezone={locationTimezone}
         />
