@@ -1,1 +1,1 @@
-[Demo](https://weather-appv2.bartoszmagiera.live)
+[Demo](https://weather.bartoszmagiera.dev)
