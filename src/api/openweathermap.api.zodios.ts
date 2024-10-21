@@ -95,7 +95,7 @@ export const unitsSchema = z.literal("metric").or(z.literal("imperial"));
 const openWeatherMapApiClient = new Zodios("https://api.openweathermap.org", [
   {
     method: "get",
-    path: "/data/2.5/onecall",
+    path: "/data/3.0/onecall",
     alias: "getOneCallForecast",
     response: openWeatherMapOneCall,
     parameters: [
