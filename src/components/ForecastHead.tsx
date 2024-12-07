@@ -78,9 +78,11 @@ function ForecastHead({
           <TempUnit className="inline-block" />
         </div>
         <div className="">Clouds {forecastCurrent.clouds}%</div>
-        <div className="">
-          Visibility {(forecastCurrent.visibility / 1000).toFixed(2)}km
-        </div>
+        {forecastCurrent.visibility ? (
+          <div className="">
+            Visibility {(forecastCurrent.visibility / 1000).toFixed(2)}km
+          </div>
+        ) : null}
         <div className="shrink-0">Wind {windSpeedDisplay}</div>
       </div>
     </section>

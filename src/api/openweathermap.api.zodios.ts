@@ -26,7 +26,7 @@ const openWeatherMapWeather = z.object({
 });
 
 export const openWeatherMapCurrent = openWeatherMapForecastBase.extend({
-  visibility: z.number(),
+  visibility: z.number().optional(),
   sunrise: z.number().optional(),
   sunset: z.number().optional(),
   weather: z.array(openWeatherMapWeather),
@@ -48,7 +48,7 @@ const openWeatherMapMinutely = z.object({
 
 export const openWeatherMapHourly = openWeatherMapForecastBase.extend({
   weather: z.array(openWeatherMapWeather),
-  visibility: z.number(),
+  visibility: z.number().optional(),
   pop: z.number(),
 });
 
